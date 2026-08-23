@@ -1,0 +1,14 @@
+# OS / editor cruft
+Thumbs.db
+Desktop.ini
+.DS_Store
+*~
+
+# Temporary Office lock files
+~$*.pptx
+~$*.docx
+~$*.xlsx
+
+# Generated job aid drafts (keep the template, not the outputs)
+*-job-aid*.pptx
+!HR Job Aid Template.pptx
