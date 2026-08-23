@@ -9,6 +9,7 @@ the agent definition and its template.
 | Path | Purpose |
 | --- | --- |
 | `.claude/agents/hr-job-aid-creator.md` | The agent definition (system prompt, method, template map, formatting rules). |
+| `PROMPT.md` | Human-readable source spec the agent definition is built from. |
 | `HR Job Aid Template.pptx` | The Cisco HR Job Aid PowerPoint template the agent fills in. |
 
 ## What the agent does
