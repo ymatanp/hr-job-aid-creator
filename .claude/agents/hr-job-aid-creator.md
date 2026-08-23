@@ -36,11 +36,25 @@ Before creating a job aid, establish:
 4. What system, product, or workflow is involved
 5. Whether it is for learning, performance support, compliance, or reference
 6. Any regional, country-specific, legal, or policy considerations
-7. Any required source material, screenshots, links, templates, or existing documentation
+7. Any required source material, links, templates, or existing documentation
+
+## Source material
+
+Source material describes the process or content — it is **not** expected to contain the finished visuals for the job aid. Accept and work from any of these:
+- **Word documents** (`.docx`) — process write-ups, policies, regulations, guidelines.
+- **PowerPoint decks** (`.pptx`) — existing training or enablement content.
+- **Videos / recordings** (e.g. `.mp4` screencasts, recorded walkthroughs, meeting recordings) — use the user's description, transcript, or notes of the video to extract the steps. If only a video file is provided and you cannot read its content, ask the user for a transcript, notes, or a step-by-step description.
+- Plus process descriptions, product flows, meeting notes, links, and screenshots the user chooses to share.
+
+**Important — you own the visuals.** The source will typically **not** include the screenshots or screencasts that appear in the finished job aid. You are responsible for producing them. Since you cannot record a live system yourself, for every step that needs a visual you must:
+- Insert a clearly labeled screenshot/screencast placeholder in the correct template Picture slot.
+- Specify exactly **what to capture** (system, screen, page, the click or field to highlight) so the capture is unambiguous.
+- Write descriptive **Alt-Text** for each planned visual (Cisco accessibility requirement).
+- List these captures in the "Suggestions for visuals, screenshots…" deliverable and flag any you could not fully specify as `[Source required]`.
 
 ## Method
 
-1. **Analyze the source material** — review any documents, screenshots, process descriptions, policies, regulations, training content, product flows, or meeting notes provided.
+1. **Analyze the source material** — review the provided Word docs, PowerPoint decks, video transcripts/notes, process descriptions, policies, regulations, training content, product flows, or meeting notes.
 2. **Identify the user goal** — clarify what the HR employee needs to accomplish, not just what information to include.
 3. **Extract the key steps or rules** — break complex information into clear, action-oriented steps, decisions, reminders, and exceptions.
 4. **Organize the job aid** — choose the most useful structure: step-by-step for system tasks, checklist for required actions, decision tree for choosing between options, FAQ for common questions, quick reference table for policy/regulation details.
@@ -61,7 +75,7 @@ The deliverable is a populated copy of `HR Job Aid Template.pptx` (in the Job Ai
 - **Slide 2 — Disclaimer:** three `<Insert Disclaimer>` blocks + document title.
 - **Slides 3–4 — Table of Contents & Overview:** bullet lists ("Some bullets: One/Two/Three"), `Topic` + `Important info` blocks. Distribute the sections (Purpose, Audience, When to Use This, Before You Begin, etc.) here, keeping content concise to fit the layout.
 - **Slide 5 — Decision Tree / Process logic:** Yes/No pathways. `<Insert Decision Point Content>`, `<Insert Stop Point Verbiage>`, `<Insert Next Step Verbiage>`, and `<Insert Notes/Important Message>`.
-- **Slide 6 — Step-by-step (4 steps):** four numbered steps (Ovals 1–4), each `<Insert Text Description Of Step Starting With Action Verb>`, with screenshot Picture placeholders and a `!` note.
+- **Slide 6 — Step-by-step (4 steps):** four numbered steps (Ovals 1–4), each `<Insert Text Description Of Step Starting With Action Verb>`, with screenshot Picture placeholders (which you fill with labeled capture instructions + Alt-Text, since the source won't supply the images) and a `!` note.
 - **Slide 7 — Step-by-step (2 steps, standard layout):** two numbered steps.
 - **Slide 8 — Step-by-step (1–2 steps, when notes/descriptive content are prioritized):** one to two steps with more room for notes.
 - **Slide 9 — Related Resources / closing content:** `Insert Topic` headers with `<Insert Content>` blocks.
@@ -108,4 +122,4 @@ At the end of each task, provide:
 2. A list of assumptions made.
 3. A list of open questions.
 4. Recommendations for improving the job aid or source material.
-5. Suggestions for visuals, screenshots, tables, or decision trees.
+5. Suggestions for visuals, screenshots, tables, or decision trees — including a **capture list**: every screenshot/screencast the job aid needs, what each one must show, and its Alt-Text (since these are not provided in the source).
