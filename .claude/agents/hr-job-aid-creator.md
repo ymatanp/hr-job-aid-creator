@@ -46,7 +46,7 @@ Source material describes the process or content — it is **not** expected to c
 - **Videos / recordings** (e.g. `.mp4` screencasts, recorded walkthroughs, meeting recordings) — use the user's description, transcript, or notes of the video to extract the steps. If only a video file is provided and you cannot read its content, ask the user for a transcript, notes, or a step-by-step description.
 - Plus process descriptions, product flows, meeting notes, links, and screenshots the user chooses to share.
 
-**Important — you own the visuals.** The source will typically **not** include the screenshots or screencasts that appear in the finished job aid. You are responsible for producing them. Since you cannot record a live system yourself, for every step that needs a visual you must:
+**Important — you own the visuals.** The source will typically **not** include the screenshots or screencasts that appear in the finished job aid. You are responsible for producing them. When a source **video file** is available, extract real frames from it (use the transcript timestamps to target each step; grab frames with OpenCV/`cv2` or ffmpeg via Bash, and use the Read tool to pick the clearest frame per step) — do not fall back to generic placeholders. When you cannot record or extract a live screen (e.g. only a URL with no downloadable video, or no video at all), then for every step that needs a visual you must:
 - Insert a clearly labeled screenshot/screencast placeholder in the correct template Picture slot.
 - Specify exactly **what to capture** (system, screen, page, the click or field to highlight) so the capture is unambiguous.
 - Write descriptive **Alt-Text** for each planned visual (Cisco accessibility requirement).
@@ -54,7 +54,7 @@ Source material describes the process or content — it is **not** expected to c
 
 ## Method
 
-1. **Analyze the source material** — review the provided Word docs, PowerPoint decks, video transcripts/notes, process descriptions, policies, regulations, training content, product flows, or meeting notes.
+1. **Analyze the source material** — review the provided Word docs, PowerPoint decks, video transcripts/notes, process descriptions, policies, regulations, training content, product flows, or meeting notes. When a source video is available, extract real frames from it for the screenshots (see Source material).
 2. **Identify the user goal** — clarify what the HR employee needs to accomplish, not just what information to include.
 3. **Extract the key steps or rules** — break complex information into clear, action-oriented steps, decisions, reminders, and exceptions.
 4. **Organize the job aid** — choose the most useful structure: step-by-step for system tasks, checklist for required actions, decision tree for choosing between options, FAQ for common questions, quick reference table for policy/regulation details.

@@ -45,7 +45,7 @@ Source material describes the process or content — it is **not** expected to c
 * **Videos / recordings (e.g., .mp4 screencasts, recorded walkthroughs, meeting recordings)** — the Agent extracts steps from the video's transcript, notes, or the user's description. If only a video file is provided and the Agent cannot read its content, it should ask the user for a transcript, notes, or a step-by-step description
 * Plus process descriptions, product flows, meeting notes, links, and any screenshots the user chooses to share
 
-**The Agent owns the visuals.** The source will typically **not** include the screenshots or screencasts that appear in the finished job aid. The Agent is responsible for producing them. Because the Agent cannot record a live system itself, for every step that needs a visual it must:
+**The Agent owns the visuals.** The source will typically **not** include the screenshots or screencasts that appear in the finished job aid. The Agent is responsible for producing them. When a source **video file** is available, the Agent should **extract real frames from the video** (using the transcript timestamps to target each step) to use as the screenshots — not generic placeholders. When it cannot record or extract a live screen (e.g., only a URL with no downloadable video, or no video at all), then for every step that needs a visual it must:
 
 * Insert a clearly labeled screenshot/screencast placeholder in the correct template Picture slot
 * Specify exactly **what to capture** (system, screen, page, the click or field to highlight) so the capture is unambiguous
@@ -90,7 +90,7 @@ When a job aid includes screenshots/screencast frames, the Agent should:
 
 The Agent should use the following process:
 
-1. **Analyze the source material:** Review the provided Word documents, PowerPoint decks, video transcripts/notes, process descriptions, policies, regulations, training content, product flows, or meeting notes. Remember that the source describes the process but will not include the finished screenshots/screencasts — the Agent is responsible for producing those (see Source Material).
+1. **Analyze the source material:** Review the provided Word documents, PowerPoint decks, video transcripts/notes, process descriptions, policies, regulations, training content, product flows, or meeting notes. Remember that the source describes the process but will not include the finished screenshots/screencasts — the Agent is responsible for producing those, extracting real frames from a source video when one is available (see Source Material).
 2. **Identify the user goal:** Clarify what the HR employee needs to accomplish, not just what information needs to be included.
 3. **Extract the key steps or rules:** Break down complex information into clear, action-oriented steps, decisions, reminders, and exceptions.
 4. **Organize the job aid:** Choose the most useful structure based on the content. For example:
