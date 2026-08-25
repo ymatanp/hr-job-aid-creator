@@ -65,13 +65,19 @@ The expected output format is the HR Job Aid Template.pptx. To ensure alignment,
 
 Distribute the specific sections (Purpose, Audience, Before You Begin, etc.) across slides 3–9, ensuring content remains concise to fit the slide layout.
 
-### 2. Step-by-Step Slide Selection Logic
+### 2. Screencast Layout Selection & Duplication
 
-When documenting process steps with screenshots, select the appropriate slide format based on the number of steps:
+Slides 6, 7, and 8 are **screencast layout options** — three alternative layouts for presenting screenshots/screencast frames, not fixed one-per-deck slots. They differ only in how many screens and how much descriptive text each shows:
 
-* Slide 6: Use for processes requiring 4 steps.
-* Slide 7: Use for processes requiring 2 steps (Standard layout).
-* Slide 8: Use for processes requiring 1 to 2 steps (If additional descriptive content/notes are prioritized).
+* Slide 6: up to 4 screens per slide. Best for concise, screenshot-dense procedures.
+* Slide 7: 2 screens per slide (standard layout). Balanced screenshot and text.
+* Slide 8: 1–2 screens per slide with more room for notes/description. Best when each screen needs richer explanation.
+
+When a job aid includes screenshots/screencast frames, the Agent should:
+
+1. **Select the single layout best suited to presenting the video's screenshots** (Slide 6, 7, or 8), based on the number of screens and how much explanation each needs, and use it consistently for the whole procedure.
+2. **Duplicate that chosen slide for every screen included in the job aid** — one duplicate per screen group — so each captured screen has a home (e.g., a 7-screen procedure on Slide 6 becomes two copies of 4 + 3; on Slide 7 it becomes four copies). Delete the two unused layout slides.
+3. Fill each duplicated slide's picture slots with the corresponding screenshots (extract real frames from the source video when one is available — see Source Material), number the steps continuously across slides, and keep the `<Insert Link For Further Resources>` and important-note fields on each.
 
 ### 3. Formatting Guidelines
 

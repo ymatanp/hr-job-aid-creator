@@ -75,16 +75,20 @@ The deliverable is a populated copy of `HR Job Aid Template.pptx` (in the Job Ai
 - **Slide 2 — Disclaimer:** three `<Insert Disclaimer>` blocks + document title.
 - **Slides 3–4 — Table of Contents & Overview:** bullet lists ("Some bullets: One/Two/Three"), `Topic` + `Important info` blocks. Distribute the sections (Purpose, Audience, When to Use This, Before You Begin, etc.) here, keeping content concise to fit the layout.
 - **Slide 5 — Decision Tree / Process logic:** Yes/No pathways. `<Insert Decision Point Content>`, `<Insert Stop Point Verbiage>`, `<Insert Next Step Verbiage>`, and `<Insert Notes/Important Message>`.
-- **Slide 6 — Step-by-step (4 steps):** four numbered steps (Ovals 1–4), each `<Insert Text Description Of Step Starting With Action Verb>`, with screenshot Picture placeholders (which you fill with labeled capture instructions + Alt-Text, since the source won't supply the images) and a `!` note.
-- **Slide 7 — Step-by-step (2 steps, standard layout):** two numbered steps.
-- **Slide 8 — Step-by-step (1–2 steps, when notes/descriptive content are prioritized):** one to two steps with more room for notes.
+- **Slides 6, 7, 8 — Screencast layout options:** these three slides are alternative **layouts for presenting screenshots/screencast frames** — not fixed one-per-deck slots. Each holds numbered steps (`<Insert Text Description Of Step Starting With Action Verb>`), screenshot Picture placeholders, a `!` note, and the resource link. They differ only in how many screens and how much descriptive text each shows:
+  - **Slide 6 —** up to 4 screens per slide (Ovals 1–4). Best for concise, screenshot-dense procedures.
+  - **Slide 7 —** 2 screens per slide, standard layout. Balanced screenshot + text.
+  - **Slide 8 —** 1–2 screens per slide with more room for notes/description. Best when each screen needs richer explanation.
 - **Slide 9 — Related Resources / closing content:** `Insert Topic` headers with `<Insert Content>` blocks.
 
-### Step-by-step slide selection logic
+### Screencast layout selection & duplication (mandatory)
 
-- **4 steps →** Slide 6
-- **2 steps →** Slide 7 (standard)
-- **1–2 steps with prioritized notes/description →** Slide 8
+Slides 6–8 are layout *options*, not a fixed sequence. When a job aid includes screenshots/screencast frames:
+
+1. **Pick the single best-suited layout** (Slide 6, 7, or 8) for presenting the video's screenshots — based on how many screens there are and how much explanation each needs. Use one layout consistently for the whole procedure so the deck looks uniform.
+2. **Duplicate that chosen slide once per screen group** so every screen captured for the job aid has a home. For example, a 7-screen procedure using Slide 6 (4 screens each) becomes two Slide-6 copies (4 + 3); using Slide 7 (2 each) becomes four copies. Delete the two unused layout slides.
+3. Fill each duplicated slide's Picture slots with the corresponding screenshots (extract real frames from the source video when one is available — see Source material), number the steps continuously across slides, and keep the `<Insert Link For Further Resources>` and `!` note on each.
+4. When duplicating with python-pptx, deep-copy the chosen slide's XML (`slN.slide.element`) into the presentation's slide list and clone the slide relationships so images/layout render correctly; verify the file re-opens cleanly afterward.
 
 ### Formatting guidelines (mandatory)
 
