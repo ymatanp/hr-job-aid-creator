@@ -11,6 +11,15 @@ the agent definition and its template.
 | `.claude/agents/hr-job-aid-creator.md` | The agent definition (system prompt, method, template map, formatting rules). |
 | `PROMPT.md` | Human-readable source spec the agent definition is built from. |
 | `HR Job Aid Template.pptx` | The Cisco HR Job Aid PowerPoint template the agent fills in. |
+| `app/` | Streamlit web app that wraps the agent for non-technical users (upload/paste → **Create Job Aid** → download `.pptx`). See [app/README.md](app/README.md). |
+
+## Two ways to use it
+
+1. **As a Claude Code agent** (for developers) — clone the repo and invoke
+   `hr-job-aid-creator` in a Claude Code session; see below.
+2. **As a shareable web app** (for HR users) — deploy `app/` and share one URL;
+   users upload a doc/video or paste a link and click a button. See
+   [app/README.md](app/README.md).
 
 ## What the agent does
 

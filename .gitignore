@@ -12,3 +12,16 @@ Desktop.ini
 # Generated job aid drafts (keep the template, not the outputs)
 *-job-aid*.pptx
 !HR Job Aid Template.pptx
+
+# Python / app artifacts
+__pycache__/
+*.pyc
+.venv/
+venv/
+.streamlit/secrets.toml
+app/_*.pptx
+app/_*.pdf
+app/_*.png
+
+# Local render scratch
+_render/
