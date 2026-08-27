@@ -1,0 +1,9 @@
+# Streamlit app configuration.
+[theme]
+primaryColor = "#0051AF"          # Cisco blue
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F2F4F7"
+textColor = "#01182E"
+
+[server]
+maxUploadSize = 500               # MB — allow video uploads for frame extraction

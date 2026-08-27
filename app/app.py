@@ -23,6 +23,14 @@ from job_aid import build_pptx, generate, sources  # noqa: E402
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE = os.path.join(REPO_ROOT, "HR Job Aid Template.pptx")
 
+# Bridge Streamlit secrets -> env vars so the backend picks them up on any host.
+try:
+    for _k in ("ANTHROPIC_API_KEY", "JOBAID_MODEL", "ANTHROPIC_BASE_URL"):
+        if _k in st.secrets and not os.environ.get(_k):
+            os.environ[_k] = str(st.secrets[_k])
+except Exception:  # noqa: BLE001 - no secrets file is fine
+    pass
+
 st.set_page_config(page_title="HR Job Aid Creator", page_icon="📄", layout="centered")
 st.title("📄 HR Job Aid Creator")
 st.caption("Turn a document, deck, or video into a Cisco-branded HR job aid.")
