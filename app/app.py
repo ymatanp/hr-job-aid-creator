@@ -6,8 +6,8 @@ Run locally:
     streamlit run app/app.py
 
 Deploy: push this repo to a host that runs Python (Streamlit Community Cloud
-from GitHub for a quick public demo, or an approved internal Cisco host for
-real HR data). GitHub itself only stores the code; it does not run the app.
+from GitHub for a quick public link, or your own private/self-hosted host if the
+content is confidential). GitHub itself only stores the code; it does not run the app.
 """
 from __future__ import annotations
 

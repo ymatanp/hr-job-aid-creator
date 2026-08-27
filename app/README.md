@@ -32,17 +32,19 @@ Then open the URL Streamlit prints (usually http://localhost:8501).
 | --- | --- | --- |
 | `ANTHROPIC_API_KEY` | env var or the in-app "Advanced settings" field | Auth for the Claude API |
 | `JOBAID_MODEL` | env var (default `claude-opus-4-8`) | Swap to a cheaper model (e.g. a Sonnet) for volume |
-| `ANTHROPIC_BASE_URL` | env var or the in-app field | Point at an approved internal Cisco LLM gateway instead of the public API |
+| `ANTHROPIC_BASE_URL` | env var or the in-app field | Point at a self-hosted / alternative LLM gateway instead of the public API |
 
 ## Deploy & share a link
 
-- **Quick public demo:** push this repo to GitHub and deploy on
+- **Public (quickest):** push this repo to GitHub and deploy on
   [Streamlit Community Cloud](https://streamlit.io/cloud) (it runs `app/app.py`
   straight from the repo). Put the API key in *Secrets*. Gives you a shareable URL.
-- **⚠️ Real HR data:** this is internal Cisco content — do **not** put it on a
-  public host. Deploy the same repo to an approved internal host (internal app
-  platform, Azure, or a container) and, if required, route the model calls
-  through `ANTHROPIC_BASE_URL` to an internal gateway. Add sign-in in front of it.
+- **Private / self-hosted:** if your job aids or sources contain confidential
+  information, or you just want to limit access, deploy the same repo to your own
+  host (a container, Azure, etc.), add sign-in, and optionally set
+  `ANTHROPIC_BASE_URL` to route the model through your own gateway.
+- **Heads up:** on any public host, anyone with the URL can use the app (and spend
+  your API key), and uploaded files are processed on that host.
 
 ## How it maps to the agent
 

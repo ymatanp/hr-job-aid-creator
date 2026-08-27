@@ -9,9 +9,11 @@
   straight from this repo and gives you a public URL. The code stays on GitHub;
   Streamlit runs it. That is the path below.
 
-> ⚠️ **Data warning.** Streamlit Community Cloud is a **public** host. Use it only
-> with **non-confidential sample data** for a demo. For real internal Cisco HR
-> content, deploy to an approved internal host (see the last section).
+> ⚠️ **Note.** Streamlit Community Cloud is a **public** host: anyone with the URL
+> can use the app (and spend your API key), and uploaded files are processed on a
+> third-party server. Fine for general use and demos. If your job aids or sources
+> contain confidential information, self-host instead (see the last section) and/or
+> add an access check.
 
 ## Option A — Streamlit Community Cloud (demo, from GitHub)
 
@@ -44,9 +46,10 @@ Streamlit Community Cloud can deploy a private repo too (grant it access when
 prompted). Note: anyone with the app URL can still *use* it unless you enable
 viewer authentication in the app's settings.
 
-## Option B — Approved internal Cisco host (for real HR data)
+## Option B — Self-host (private deployment)
 
-Run the same repo anywhere that executes Python + has an Anthropic path:
+If you'd rather not use a public host, run the same repo anywhere that executes
+Python + has an Anthropic path:
 
 ```bash
 pip install -r requirements.txt
@@ -66,6 +69,6 @@ EXPOSE 8501
 CMD ["streamlit", "run", "app/app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
 ```
 
-Put SSO / network restrictions in front, and set `ANTHROPIC_BASE_URL` to an
-approved internal LLM gateway if the public API isn't permitted.
+Add authentication / network restrictions if you want to limit who can use it,
+and set `ANTHROPIC_BASE_URL` if you route the model through your own gateway.
 ```
