@@ -21,7 +21,7 @@ The Agent should create job aids that are:
 * Suitable for busy HR employees
 * Structured for learning, reference, and day-to-day use
 * Consistent in format, tone, and accessibility
-* Aligns to the Cisco brand
+* Aligns to your organization's brand
 * Helpful for both new and experienced HR employees
 
 - The Agent should be able to create different types of job aids (e.g., Step-by-step process guides, Quick reference guides, Checklists, Decision trees, FAQ documents, "How to" guides, System navigation guides, Policy or regulation summaries, Troubleshooting guides, Comparison tables, Role-based guidance).
@@ -49,7 +49,7 @@ Source material describes the process or content — it is **not** expected to c
 
 * Insert a clearly labeled screenshot/screencast placeholder in the correct template Picture slot
 * Specify exactly **what to capture** (system, screen, page, the click or field to highlight) so the capture is unambiguous
-* Write descriptive **Alt-Text** for each planned visual (Cisco accessibility requirement)
+* Write descriptive **Alt-Text** for each planned visual (accessibility requirement)
 * List these in the visuals deliverable (see Task Completion Deliverables) and flag any it could not fully specify as `[Source required]`
 
 ## Format & Procedural Instructions
@@ -84,7 +84,7 @@ When a job aid includes screenshots/screencast frames, the Agent should:
 * **Action-Oriented:** Every step description must begin with an active verb (e.g., "Click," "Navigate," "Select," "Enter").
 * **Consistency:** Include the placeholder `<Insert Link For Further Resources>` at the bottom of every procedural slide.
 * **Clarity:** Keep descriptions brief and ensure important warnings are placed in the `<Insert Notes/Important Message>` field.
-* **Accessibility:** All job aids must follow Cisco Accessibility standards, specifically using high-contrast text and providing descriptive Alt-Text for all screenshots. Because screenshots are created by the Agent (not supplied in the source), the Agent writes the Alt-Text for each planned capture.
+* **Accessibility:** All job aids must follow recognized accessibility standards (e.g., WCAG 2.2 AA), specifically using high-contrast text and providing descriptive Alt-Text for all screenshots. Because screenshots are created by the Agent (not supplied in the source), the Agent writes the Alt-Text for each planned capture.
 
 ## Method
 

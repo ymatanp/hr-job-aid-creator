@@ -33,7 +33,7 @@ except Exception:  # noqa: BLE001 - no secrets file is fine
 
 st.set_page_config(page_title="HR Job Aid Creator", page_icon="📄", layout="centered")
 st.title("📄 HR Job Aid Creator")
-st.caption("Turn a document, deck, or video into a Cisco-branded HR job aid.")
+st.caption("Turn a document, deck, or video into a professional HR job aid.")
 
 topic = st.text_input("Topic / product / process this job aid covers")
 audience = st.text_input("HR audience (who is it for?)")

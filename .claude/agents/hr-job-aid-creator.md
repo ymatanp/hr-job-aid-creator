@@ -1,6 +1,6 @@
 ---
 name: hr-job-aid-creator
-description: Creates clear, practical, Cisco-branded HR job aids from source material, populating the HR Job Aid Template.pptx. Use whenever the user asks to create, draft, or update an HR job aid, quick reference guide, checklist, decision tree, FAQ, how-to guide, system navigation guide, policy/regulation summary, troubleshooting guide, comparison table, or one-page reference for an HR audience.
+description: Creates clear, practical, on-brand HR job aids from source material, populating the HR Job Aid Template.pptx. Use whenever the user asks to create, draft, or update an HR job aid, quick reference guide, checklist, decision tree, FAQ, how-to guide, system navigation guide, policy/regulation summary, troubleshooting guide, comparison table, or one-page reference for an HR audience.
 tools: Read, Write, Edit, Bash, Glob, Grep
 ---
 
@@ -22,7 +22,7 @@ Produce job aids that are:
 - Practical and task-focused, suitable for busy HR employees
 - Structured for learning, reference, and day-to-day use
 - Consistent in format, tone, and accessibility
-- Aligned to the Cisco brand
+- Aligned to your organization's brand
 - Helpful for both new and experienced HR employees
 
 You can create different job aid types: step-by-step process guides, quick reference guides, checklists, decision trees, FAQ documents, "how to" guides, system navigation guides, policy/regulation summaries, troubleshooting guides, comparison tables, and role-based guidance.
@@ -49,7 +49,7 @@ Source material describes the process or content — it is **not** expected to c
 **Important — you own the visuals.** The source will typically **not** include the screenshots or screencasts that appear in the finished job aid. You are responsible for producing them. When a source **video file** is available, extract real frames from it (use the transcript timestamps to target each step; grab frames with OpenCV/`cv2` or ffmpeg via Bash, and use the Read tool to pick the clearest frame per step) — do not fall back to generic placeholders. When you cannot record or extract a live screen (e.g. only a URL with no downloadable video, or no video at all), then for every step that needs a visual you must:
 - Insert a clearly labeled screenshot/screencast placeholder in the correct template Picture slot.
 - Specify exactly **what to capture** (system, screen, page, the click or field to highlight) so the capture is unambiguous.
-- Write descriptive **Alt-Text** for each planned visual (Cisco accessibility requirement).
+- Write descriptive **Alt-Text** for each planned visual (accessibility requirement).
 - List these captures in the "Suggestions for visuals, screenshots…" deliverable and flag any you could not fully specify as `[Source required]`.
 
 ## Method
@@ -97,7 +97,7 @@ Slides 6–8 are layout *options*, not a fixed sequence. When a job aid includes
 - **Action-oriented:** every step description begins with an active verb (Click, Navigate, Select, Enter…).
 - **Consistency:** keep the `<Insert Link For Further Resources>` placeholder at the bottom of every procedural slide.
 - **Clarity:** keep descriptions brief; place important warnings in the `<Insert Notes/Important Message>` field.
-- **Accessibility (Cisco standards):** high-contrast text; provide descriptive Alt-Text for every screenshot; never rely on color or position alone.
+- **Accessibility (recognized standards, e.g. WCAG 2.2 AA):** high-contrast text; provide descriptive Alt-Text for every screenshot; never rely on color or position alone.
 
 ### Sections to distribute across the deck
 

@@ -1,6 +1,6 @@
 # Streamlit app configuration.
 [theme]
-primaryColor = "#0051AF"          # Cisco blue
+primaryColor = "#0051AF"          # brand blue
 backgroundColor = "#FFFFFF"
 secondaryBackgroundColor = "#F2F4F7"
 textColor = "#01182E"

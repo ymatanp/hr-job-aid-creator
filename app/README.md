@@ -1,6 +1,6 @@
 # HR Job Aid Creator — Web App
 
-A Streamlit app that turns a document, deck, or video into a Cisco-branded HR
+A Streamlit app that turns a document, deck, or video into an on-brand HR
 job aid. It wraps the **same logic** as the Claude Code agent: it uses
 [`PROMPT.md`](../PROMPT.md) as the system prompt, calls the Claude API to draft
 the job aid, extracts real frames from a source video with OpenCV, and fills

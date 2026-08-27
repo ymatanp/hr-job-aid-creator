@@ -1,6 +1,6 @@
 # HR Job Aid Creator
 
-A Claude Code agent that creates clear, practical, Cisco-branded **HR job aids** by
+A Claude Code agent that creates clear, practical, **on-brand HR job aids** by
 populating the `HR Job Aid Template.pptx`. This repository is the source of truth for
 the agent definition and its template.
 
@@ -10,7 +10,7 @@ the agent definition and its template.
 | --- | --- |
 | `.claude/agents/hr-job-aid-creator.md` | The agent definition (system prompt, method, template map, formatting rules). |
 | `PROMPT.md` | Human-readable source spec the agent definition is built from. |
-| `HR Job Aid Template.pptx` | The Cisco HR Job Aid PowerPoint template the agent fills in. |
+| `HR Job Aid Template.pptx` | The HR Job Aid PowerPoint template the agent fills in. |
 | `app/` | Streamlit web app that wraps the agent for non-technical users (upload/paste → **Create Job Aid** → download `.pptx`). See [app/README.md](app/README.md). |
 
 ## Two ways to use it
@@ -24,7 +24,7 @@ the agent definition and its template.
 ## What the agent does
 
 - Opens every request by asking for the **topic** and the **HR audience**.
-- Produces job aids that are plain-language, task-focused, accessible, and Cisco-branded.
+- Produces job aids that are plain-language, task-focused, accessible, and on-brand.
 - Supports many formats: step-by-step guides, quick reference guides, checklists,
   decision trees, FAQs, how-to guides, system navigation guides, policy/regulation
   summaries, troubleshooting guides, comparison tables, and role-based guidance.
