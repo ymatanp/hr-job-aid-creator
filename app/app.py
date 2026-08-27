@@ -25,7 +25,7 @@ TEMPLATE = os.path.join(REPO_ROOT, "HR Job Aid Template.pptx")
 
 # Bridge Streamlit secrets -> env vars so the backend picks them up on any host.
 try:
-    for _k in ("ANTHROPIC_API_KEY", "JOBAID_MODEL", "ANTHROPIC_BASE_URL"):
+    for _k in ("ANTHROPIC_API_KEY", "JOBAID_MODEL", "ANTHROPIC_BASE_URL", "APP_PASSWORD"):
         if _k in st.secrets and not os.environ.get(_k):
             os.environ[_k] = str(st.secrets[_k])
 except Exception:  # noqa: BLE001 - no secrets file is fine
@@ -34,6 +34,26 @@ except Exception:  # noqa: BLE001 - no secrets file is fine
 st.set_page_config(page_title="HR Job Aid Creator", page_icon="📄", layout="centered")
 st.title("📄 HR Job Aid Creator")
 st.caption("Turn a document, deck, or video into a professional HR job aid.")
+
+
+def _require_password() -> None:
+    """Optional shared-password gate. Enabled only if APP_PASSWORD is configured."""
+    required = os.environ.get("APP_PASSWORD")
+    if not required:
+        return
+    if st.session_state.get("authed"):
+        return
+    with st.form("login"):
+        entered = st.text_input("Access password", type="password")
+        if st.form_submit_button("Enter"):
+            st.session_state["authed"] = entered == required
+            if not st.session_state["authed"]:
+                st.error("Incorrect password.")
+    if not st.session_state.get("authed"):
+        st.stop()
+
+
+_require_password()
 
 topic = st.text_input("Topic / product / process this job aid covers")
 audience = st.text_input("HR audience (who is it for?)")
@@ -45,10 +65,17 @@ upload = st.file_uploader(
 )
 pasted = st.text_area("…or paste text / a transcript", height=140)
 
-with st.expander("Advanced settings"):
-    model = st.text_input("Model", value=generate.DEFAULT_MODEL)
-    api_key = st.text_input("Anthropic API key (or set ANTHROPIC_API_KEY)", type="password")
-    base_url = st.text_input("API base URL (optional — for an internal gateway)")
+# End users don't see any settings when the app is configured with a server-side
+# key. The settings box only appears if no key is present (e.g. a local run).
+model = os.environ.get("JOBAID_MODEL", generate.DEFAULT_MODEL)
+base_url = os.environ.get("ANTHROPIC_BASE_URL") or None
+api_key = None
+if not os.environ.get("ANTHROPIC_API_KEY"):
+    with st.expander("Settings — no API key configured", expanded=True):
+        st.caption("Set ANTHROPIC_API_KEY in the host's secrets to hide this from users.")
+        api_key = st.text_input("Anthropic API key", type="password") or None
+        model = st.text_input("Model", value=model)
+        base_url = st.text_input("API base URL (optional)") or None
 
 go = st.button("Create Job Aid", type="primary")
 
