@@ -1,0 +1,39 @@
+{
+  "name": "video-to-job-aid",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Convert a software demo video + transcript into an editable PowerPoint job aid based on a supplied template.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "template:validate": "tsx scripts/validate-template.ts",
+    "template:roundtrip": "tsx scripts/roundtrip-test.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "ffmpeg-static": "^5.2.0",
+    "next": "^14.2.15",
+    "pptx-automizer": "^0.9.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sharp": "^0.33.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "jsdom": "^30.0.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4",
+    "vitest-axe": "^0.1.0"
+  }
+}
