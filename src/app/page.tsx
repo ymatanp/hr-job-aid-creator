@@ -11,6 +11,7 @@ export default function HomePage() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [status, setStatus] = useState('');
+  const [fileName, setFileName] = useState('');
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -33,12 +34,20 @@ export default function HomePage() {
 
   return (
     <>
-      <h1>Create a job aid from a demo video</h1>
-      <p className="hint">
-        Upload one demo video (mp4, mov, or webm) and optional supporting text. Limits:
-        up to 500&nbsp;MB and 30&nbsp;minutes. Your files are processed temporarily and
-        deleted after 60&nbsp;minutes or when you choose “Delete my files now”.
-      </p>
+      <section className="hero">
+        <span className="badge">
+          <span className="dot" /> Video → Editable PowerPoint
+        </span>
+        <h1>
+          Create a job aid
+          <br />
+          from a demo video.
+        </h1>
+        <p className="lead">
+          Upload a screen recording and transcript. Review the drafted steps and screenshots,
+          then export an on-brand, editable PowerPoint job aid.
+        </p>
+      </section>
 
       {error && (
         <p className="error" role="alert">
@@ -50,12 +59,40 @@ export default function HomePage() {
       </p>
 
       <form onSubmit={onSubmit}>
+        <p className="form-note">
+          Fields marked <span className="req" aria-hidden="true">*</span> are required.
+        </p>
         <fieldset>
           <legend>Source files</legend>
           <label htmlFor="video">
-            Demo video <span className="hint">(required — mp4, mov, or webm)</span>
+            Demo video <span className="req" aria-hidden="true">*</span>{' '}
+            <span className="hint">(mp4, mov, or webm)</span>
           </label>
-          <input id="video" name="video" type="file" accept="video/mp4,video/quicktime,video/webm" required />
+          <div className="dropzone">
+            <input
+              id="video"
+              name="video"
+              type="file"
+              accept="video/mp4,video/quicktime,video/webm"
+              required
+              className="dropzone-input"
+              onChange={(e) => setFileName(e.target.files?.[0]?.name ?? '')}
+            />
+            <span className="dropzone-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 16V4M12 4l-4 4M12 4l4 4" />
+                <path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+              </svg>
+            </span>
+            <span className="dropzone-title">
+              {fileName ? <span className="dropzone-file">{fileName}</span> : 'Drop a video here, or choose a file'}
+            </span>
+            <span className="hint">MP4, MOV, or WEBM · up to 500 MB · 30 min</span>
+          </div>
+          <p className="hint" style={{ marginTop: '0.6rem' }}>
+            Files are processed temporarily and deleted after 60&nbsp;minutes, or when you choose
+            “Delete my files now”.
+          </p>
 
           <label htmlFor="transcript">
             Supporting text <span className="hint">(optional — paste a transcript or notes)</span>
@@ -67,17 +104,25 @@ export default function HomePage() {
           <legend>Job aid details</legend>
           <div className="row">
             <div>
-              <label htmlFor="title">Title</label>
+              <label htmlFor="title">
+                Title <span className="req" aria-hidden="true">*</span>
+              </label>
               <input id="title" name="title" type="text" required />
             </div>
             <div>
-              <label htmlFor="owner">Document owner / team</label>
+              <label htmlFor="owner">
+                Document owner / team <span className="req" aria-hidden="true">*</span>
+              </label>
               <input id="owner" name="owner" type="text" defaultValue="Human Resources" required />
             </div>
           </div>
-          <label htmlFor="audience">Intended audience</label>
+          <label htmlFor="audience">
+            Intended audience <span className="req" aria-hidden="true">*</span>
+          </label>
           <input id="audience" name="audience" type="text" required />
-          <label htmlFor="purpose">Purpose or outcome</label>
+          <label htmlFor="purpose">
+            Purpose or outcome <span className="req" aria-hidden="true">*</span>
+          </label>
           <textarea id="purpose" name="purpose" required />
           <label htmlFor="disclaimer">Disclaimer</label>
           <textarea id="disclaimer" name="disclaimer" defaultValue={DEFAULT_DISCLAIMER} />
