@@ -7,12 +7,36 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import path from 'node:path';
 import fs from 'node:fs/promises';
-import ffmpegPath from 'ffmpeg-static';
+import { existsSync } from 'node:fs';
+import ffmpegStatic from 'ffmpeg-static';
 import { Semaphore } from '../util/semaphore';
 import { config } from '../config';
 
 const execFileP = promisify(execFile);
-const ffmpeg = (ffmpegPath as unknown as string) || 'ffmpeg';
+
+/**
+ * Resolve the ffmpeg binary robustly. In a Next.js PRODUCTION build the path
+ * exported by ffmpeg-static can be rewritten/incorrect, so we fall back to the
+ * real binary under node_modules (which is what actually ships), and finally to
+ * a PATH lookup. Whichever exists first wins.
+ */
+function resolveFfmpeg(): string {
+  const exe = process.platform === 'win32' ? 'ffmpeg.exe' : 'ffmpeg';
+  const candidates = [
+    ffmpegStatic as unknown as string,
+    path.join(process.cwd(), 'node_modules', 'ffmpeg-static', exe),
+  ].filter(Boolean) as string[];
+  for (const c of candidates) {
+    try {
+      if (existsSync(c)) return c;
+    } catch {
+      /* ignore and try next */
+    }
+  }
+  return 'ffmpeg'; // last resort: rely on system PATH
+}
+
+const ffmpeg = resolveFfmpeg();
 const gate = new Semaphore(config.concurrency.ffmpeg);
 const FFMPEG_TIMEOUT_MS = 120_000;
 
@@ -26,13 +50,21 @@ export interface VideoMetadata {
 
 /** ffmpeg writes metadata to stderr; we parse it rather than requiring ffprobe. */
 export async function readMetadata(videoPath: string): Promise<VideoMetadata> {
-  const { stderr } = await gate.run(() =>
+  const result = await gate.run(() =>
     execFileP(ffmpeg, ['-hide_banner', '-i', videoPath], {
       timeout: FFMPEG_TIMEOUT_MS,
       maxBuffer: 8 * 1024 * 1024,
-    }).catch((e) => e as { stderr: string }),
+    }).catch((e) => e as { stderr?: string; code?: string; message?: string }),
   );
-  const text = String(stderr ?? '');
+  // A spawn failure (e.g. binary not found/executable) has no stderr — surface it
+  // clearly rather than masquerading as a corrupt file.
+  if (!('stderr' in result) || result.stderr === undefined) {
+    const code = (result as { code?: string }).code;
+    if (code === 'ENOENT') {
+      throw new Error(`ffmpeg binary could not be launched (resolved: ${ffmpeg}).`);
+    }
+  }
+  const text = String((result as { stderr?: string }).stderr ?? '');
 
   const dur = /Duration:\s*(\d+):(\d+):(\d+\.?\d*)/.exec(text);
   const durationSec = dur ? +dur[1] * 3600 + +dur[2] * 60 + +dur[3] : 0;
